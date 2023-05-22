@@ -1,0 +1,14 @@
+
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "l3-rule"
+  namespace: "cilium-test"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: db-server
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app: api-server
